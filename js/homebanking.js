@@ -36,16 +36,22 @@ window.onload = function() {
 
 //Funciones que tenes que completar
 function cambiarLimiteDeExtraccion() {
-    var dineroExtraer = prompt("Cuanto dinero desea extraer?");
-    if (dineroExtraer>limiteExtraccion) {
+    var nuevoLimite = prompt("Cual es el nuevo valor del limite de Extracción?");
+    limiteExtraccion=nuevoLimite;
+    alert("Tu nuevo limite de Extracción es " + limiteExtraccion)
+    document.getElementById("limite-extraccion").innerHTML = "Tu límite de extracción es: $" + limiteExtraccion;
 
     }
 
 
-}
 
-function extraerDinero() {
+
+function extraerDinero() { //DUDA COMO HAGO PARA QUE SI EL VALOR ES NULL O NAN NO SE EJECUTE
     var dineroExtraer = prompt("Cuanto dinero desea extraer?");
+
+    if (dineroExtraer == null || dineroExtraer==NaN) {
+        alert("Elija un valor nuevamente");
+    }
     
     
     if (dineroExtraer>saldoCuenta) {
@@ -68,9 +74,6 @@ function extraerDinero() {
     }
 
             
-
-    // }else if (dineroActual>limiteExtraccion){
-    //     alert("La cantidad de dinero que deseas extraer es mayor a tu limite de Extraccion") No FUNCIONA
         
     // }La función que se encarga de la extracción de dinero va a ser extensa y va a contener muchas validaciones. 
     // Una buena idea es crear funciones más pequeñas que devuelvan un valor boleeano y luego consultarlo desde la sentencia if.
@@ -93,11 +96,8 @@ function depositarDinero() {
     var dineroActual2 = parseInt(dineroDeposito) + parseInt(saldoCuenta);
     // saldoCuenta = dineroActual;
     document.getElementById("saldo-cuenta").innerHTML = "$" + dineroActual2;
-    alert("Tu saldo es " + dineroActual2);
+        alert("Tu saldo es " + dineroActual2);
     return saldoCuenta = dineroActual2;
-    
-    
-
 }
 
 function pagarServicio() {
